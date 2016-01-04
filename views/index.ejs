@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myWorkoutApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/app-client.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/workout-client.js"></script>
+  </head>
+  <body ng-controller="workoutController">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div ng-repeat="work in workouts">
+    	{{ $index + 1 }} - {{ work._id}} - {{ work.name }} - {{ work.description }} - [{{ work.date_created }}]
+    </div>
+    <br /><br />
+    <fieldset>
+    <form>
+    	<input type="text" ng-model="workout_name" /><br />
+    	<input type="text" ng-model="workout_description" /><br />
+    	<input type="button" value="Create" ng-click="Save()" />
+    </form>
+    </fieldset>
+
+    <br /><br />
+
+
+    <fieldset>
+    <form>
+    	<input type="text" ng-model="edit_id" />&nbsp;<input type="button" ng-click="GetWorkOut()" value="Go" /><br />
+    	<input type="text" ng-model="workout_edit_name" ng-disabled="true" /><br />
+    	<input type="text" ng-model="workout_edit_description"  ng-disabled="true" /><br />
+    	<input type="button" value="Update" ng-click="Update()" />
+    </form>
+    </fieldset>
+
+
+    <fieldset>
+    <form>
+    	<span style="color:red" ng-show="(errorMessage != '')">{{ errorMessage }}<br /></span>
+    	<input type="text" ng-model="delete_id" /><br />
+    	<input type="button" value="Remove" ng-click="DeleteWorkout()" />
+    </form>
+    </fieldset>
+
+
+  </body>
+</html>

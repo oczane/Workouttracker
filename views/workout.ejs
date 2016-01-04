@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/app-client.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/workout-client.js"></script>
+  </head>
+  <body ng-app="myWorkoutApp">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <fieldset>
+    <form action="/workouts" method="post">
+    	<input type="text" id="workout_name" name="workout_name" /><br />
+    	<input type="text" id="workout_description" name="workout_description" /><br />
+    	<input type="submit" value="Save" />
+    </form>
+    </fieldset>
+
+    <br /><br />
+
+
+    <fieldset>
+    <form action="/workouts" method="put" if-match="*">
+    	<input type="text" id="id" name="id" /><br />
+    	<input type="text" id="workout_name" name="workout_name" /><br />
+    	<input type="text" id="workout_description" name="workout_description" /><br />
+    	<input type="submit" value="Save" />
+    </form>
+    </fieldset>
+
+  </body>
+</html>
